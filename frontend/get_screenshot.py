@@ -26,7 +26,7 @@ def get_my_screenshot(url):
     chrome_options.add_experimental_option('useAutomationExtension', False)
 
     
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager(driver_version='123').install()), options=chrome_options)
 
     stealth(driver,
         languages=["en-US", "en"],
