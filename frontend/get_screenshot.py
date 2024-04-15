@@ -18,7 +18,7 @@ def get_my_screenshot(url):
     chrome_options.add_argument("start-maximized")
     chrome_options.add_argument("--headless")
 
-    chrome_options.add_argument('--disable-dev-shm-usage')
+    # chrome_options.add_argument('--disable-dev-shm-usage')
 
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
     chrome_options.add_experimental_option('useAutomationExtension', False)

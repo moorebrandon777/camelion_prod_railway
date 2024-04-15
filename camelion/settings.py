@@ -184,7 +184,9 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.tubular-beijinho-926746.netlify.app/frontend/my_bg",
     "https://*.tubular-beijinho-926746.netlify.app/frontend/detail",
     "https://*.camelion-prod.up.railway.app",
-    "https://camelion-prod.up.railway.app"
+    "https://camelion-prod.up.railway.app",
+    "https://camelion-prod.up.railway.app/frontend/my_bg",
+    "https://camelion-prod.up.railway.app/frontend/detail"
     ]
 
 
