@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['onrender.com','camelion.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['camelion-prod.up.railway.app','localhost', '127.0.0.1']
 
 
 # Application definition
@@ -182,7 +182,9 @@ CSRF_TRUSTED_ORIGINS = [
     "https://tubular-beijinho-926746.netlify.app/frontend/my_bg",
     "https://tubular-beijinho-926746.netlify.app/frontend/detail",
     "https://*.tubular-beijinho-926746.netlify.app/frontend/my_bg",
-    "https://*.tubular-beijinho-926746.netlify.app/frontend/detail"
+    "https://*.tubular-beijinho-926746.netlify.app/frontend/detail",
+    "https://*.camelion-prod.up.railway.app",
+    "https://camelion-prod.up.railway.app"
     ]
 
 
