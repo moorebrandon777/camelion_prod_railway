@@ -10,6 +10,7 @@ from django.conf import settings
 def get_my_screenshot(url):
     email_name = url
     f_email = url.replace("https://","")
+    p_path = os.path.join(settings.BASE_DIR,'frontend\cwebdriver\chromedriver-win64\chromedriver.exe')
     # email_name = url.split('@')[1]
     # email_name = url.replace("https://","")
 
@@ -17,6 +18,7 @@ def get_my_screenshot(url):
     chrome_options = Options()
     chrome_options.add_argument("start-maximized")
     chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
 
     # chrome_options.add_argument('--disable-dev-shm-usage')
 
@@ -24,7 +26,7 @@ def get_my_screenshot(url):
     chrome_options.add_experimental_option('useAutomationExtension', False)
 
     
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome(p_path, options=chrome_options)
 
     stealth(driver,
         languages=["en-US", "en"],
