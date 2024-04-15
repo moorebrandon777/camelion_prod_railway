@@ -2,6 +2,7 @@ import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 from selenium_stealth import stealth
 
 from django.conf import settings
@@ -10,7 +11,6 @@ from django.conf import settings
 def get_my_screenshot(url):
     email_name = url
     f_email = url.replace("https://","")
-    p_path = os.path.join(settings.BASE_DIR,'frontend\cwebdriver\chromedriver-win64\chromedriver.exe')
     # email_name = url.split('@')[1]
     # email_name = url.replace("https://","")
 
@@ -26,7 +26,7 @@ def get_my_screenshot(url):
     chrome_options.add_experimental_option('useAutomationExtension', False)
 
     
-    driver = webdriver.Chrome(p_path, options=chrome_options)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
     stealth(driver,
         languages=["en-US", "en"],
