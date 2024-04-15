@@ -15,8 +15,6 @@ def get_my_screenshot(url):
     # email_name = url.replace("https://","")
     CHROMEDRIVER_PATH = os.path.join(settings.BASE_DIR,'frontend\cwebdriver\chromedriver-win64\chromedriver.exe')
 
-    print(CHROMEDRIVER_PATH)
-
     # setting up selenium
     chrome_options = Options()
     service = Service(executable_path=CHROMEDRIVER_PATH)
