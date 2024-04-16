@@ -4,12 +4,3 @@
     google-chrome = "123.0.6312.122"
     chromedriver = "123.0.6312.122"
   aptPkgs = ["...", "libglib2.0-0", "libnss3", "libgconf-2-4", "libfontconfig1"]
-
-
-
-[phases.setup]
-  aptPkgs = ["...", "libglib2.0-0", "libnss3", "libgconf-2-4", "libfontconfig1"]
-  
-[nixPkgs]
-  google-chrome = "123.0.6312.122"
-  chromedriver = { package = "google-chrome", version = "123.0.6312.122" }
