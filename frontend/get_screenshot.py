@@ -22,7 +22,7 @@ def get_my_screenshot(url):
     chromedriver_autoinstaller.install()
 
     # setting up selenium
-    # service = Service(executable_path=ChromeDriverManager().install())
+    service = Service(executable_path=r'/root/.nix-profile/bin/chromedriver')
     chrome_options = Options()
     chrome_options.add_argument("start-maximized")
     chrome_options.add_argument("--headless")
@@ -32,7 +32,7 @@ def get_my_screenshot(url):
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
     chrome_options.add_experimental_option('useAutomationExtension', False)
 
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome(service=service, options=chrome_options)
 
     stealth(driver,
         languages=["en-US", "en"],
