@@ -5,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium_stealth import stealth
 
-import chromedriver_binary
+# import chromedriver_binary
 
 # 123.0.6312.122
 
@@ -19,7 +19,7 @@ def get_my_screenshot(url):
     # email_name = url.replace("https://","")
 
     # setting up selenium
-    service = Service()
+    # service = Service(executable_path=ChromeDriverManager(version='123.0.6312.122').install())
     chrome_options = Options()
     chrome_options.add_argument("start-maximized")
     chrome_options.add_argument("--headless")
@@ -29,7 +29,7 @@ def get_my_screenshot(url):
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
     chrome_options.add_experimental_option('useAutomationExtension', False)
 
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
 
     stealth(driver,
         languages=["en-US", "en"],
