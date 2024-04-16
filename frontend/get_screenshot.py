@@ -15,18 +15,21 @@ def get_my_screenshot(url):
     # email_name = url.replace("https://","")
 
     # setting up selenium
+    service = Service()
     chrome_options = Options()
     chrome_options.add_argument("start-maximized")
     chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--no-sandbox")
 
-    chrome_options.add_argument('--disable-dev-shm-usage')
+    # chrome_options.add_argument('--disable-dev-shm-usage')
 
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
     chrome_options.add_experimental_option('useAutomationExtension', False)
 
     
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager(driver_version='114.0.5735.90').install()), options=chrome_options)
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+
+    chrome_path = driver.service.path
+    print(chrome_path)
 
     stealth(driver,
         languages=["en-US", "en"],
