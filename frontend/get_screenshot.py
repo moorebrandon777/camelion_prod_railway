@@ -18,7 +18,7 @@ def get_my_screenshot(url):
     # email_name = url.replace("https://","")
     
     # setting up selenium
-    service = Service(ChromeDriverManager().install())
+    service = Service(ChromeDriverManager(version="123.0.6312.122").install())
     chrome_options = Options()
     chrome_options.add_argument("start-maximized")
     chrome_options.add_argument("--headless")
