@@ -11,7 +11,7 @@ deleteme
 deleteme/
 
 d_ka.txt
-nixpacks.toml
+# nixpacks.toml
 # Backup files # 
 *.bak 
 

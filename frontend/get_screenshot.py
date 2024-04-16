@@ -5,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium_stealth import stealth
 
-import chromedriver_binary
+# import chromedriver_binary
 
 from django.conf import settings
 
