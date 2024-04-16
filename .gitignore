@@ -7,6 +7,9 @@ db.sqlite3
 media
 media/
 
+deleteme
+deleteme/
+
 d_ka.txt
 nixpacks.toml
 # Backup files # 

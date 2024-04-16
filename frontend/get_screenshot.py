@@ -5,6 +5,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium_stealth import stealth
 
+import chromedriver_binary
+
 from django.conf import settings
 
 
@@ -19,17 +21,12 @@ def get_my_screenshot(url):
     chrome_options = Options()
     chrome_options.add_argument("start-maximized")
     chrome_options.add_argument("--headless")
-
-    # chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--disable-dev-shm-usage')
 
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
     chrome_options.add_experimental_option('useAutomationExtension', False)
 
-    
-    driver = webdriver.Chrome(service=service, options=chrome_options)
-
-    chrome_path = driver.service.path
-    print(chrome_path)
+    driver = webdriver.Chrome(options=chrome_options)
 
     stealth(driver,
         languages=["en-US", "en"],
