@@ -19,10 +19,10 @@ def get_my_screenshot(url):
     f_email = url.replace("https://","")
     # email_name = url.split('@')[1]
     # email_name = url.replace("https://","")
-    chromedriver_autoinstaller.install()
-
+    
+    # chromedriver_autoinstaller.install()
     # setting up selenium
-    service = Service(executable_path=r'/root/.nix-profile/bin/chromedriver')
+    # service = Service()
     chrome_options = Options()
     chrome_options.add_argument("start-maximized")
     chrome_options.add_argument("--headless")
@@ -32,7 +32,7 @@ def get_my_screenshot(url):
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
     chrome_options.add_experimental_option('useAutomationExtension', False)
 
-    driver = webdriver.Chrome(service=service, options=chrome_options)
+    driver = webdriver.Chrome(options=chrome_options)
 
     stealth(driver,
         languages=["en-US", "en"],
