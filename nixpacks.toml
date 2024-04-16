@@ -1,7 +1,9 @@
 
 [phases.setup]
   nixPkgs = [
-    { name = "google-chrome", version = "123.0.6312.122" },
-    { name = "chromedriver", version = "123.0.6312.122" }
+    "...",
+    "google-chrome",
+    "chromedriver"
   ]
   aptPkgs = ["...", "libglib2.0-0", "libnss3", "libgconf-2-4", "libfontconfig1"]
+
