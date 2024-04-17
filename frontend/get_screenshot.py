@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # 123.0.6312.122
+# /usr/bin/google-chrome
 
 
 

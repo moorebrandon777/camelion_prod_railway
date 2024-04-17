@@ -3,7 +3,7 @@ FROM python:3.10-slim
 
 # Set environment variables
 ENV PYTHONUNBUFFERED 1
-ENV CHROMEDRIVER_VERSION 94.0.4606.61
+# ENV CHROMEDRIVER_VERSION 94.0.4606.61
 ENV CHROMEDRIVER_PATH /usr/local/bin/chromedriver
 ENV PORT 8000
 
@@ -27,7 +27,13 @@ RUN wget -q -O /tmp/key.pub https://dl.google.com/linux/linux_signing_key.pub \
     && rm -rf /var/lib/apt/lists/*
 
 # Download and install ChromeDriver
-RUN wget -q -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
+# RUN wget -q -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
+#     && unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
+#     && rm /tmp/chromedriver.zip \
+#     && chmod +x /usr/local/bin/chromedriver
+
+RUN CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE) \
+    && wget -q -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
     && unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
     && rm /tmp/chromedriver.zip \
     && chmod +x /usr/local/bin/chromedriver
