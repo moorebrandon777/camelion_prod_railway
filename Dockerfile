@@ -33,16 +33,24 @@ RUN wget -q -O /tmp/key.pub https://dl.google.com/linux/linux_signing_key.pub \
 #     && rm /tmp/chromedriver.zip \
 #     && chmod +x /usr/local/bin/chromedriver
 
-RUN CHROMEDRIVER_URL="https://storage.googleapis.com/chrome-for-testing-public/124.0.6367.60/linux64/chromedriver-linux64.zip" \
-    && echo "Downloading ChromeDriver from $CHROMEDRIVER_URL" \
-    && wget -q -O /tmp/chromedriver.zip $CHROMEDRIVER_URL \
-    && echo "Extracting ChromeDriver zip file" \
-    && unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
-    && echo "Cleaning up" \
-    && rm /tmp/chromedriver.zip \
-    && chmod +x /usr/local/bin/chromedriver
+# RUN CHROMEDRIVER_URL="https://storage.googleapis.com/chrome-for-testing-public/124.0.6367.60/linux64/chromedriver-linux64.zip" \
+#     && echo "Downloading ChromeDriver from $CHROMEDRIVER_URL" \
+#     && wget -q -O /tmp/chromedriver.zip $CHROMEDRIVER_URL \
+#     && echo "Extracting ChromeDriver zip file" \
+#     && unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
+#     && echo "Cleaning up" \
+#     && rm /tmp/chromedriver.zip \
+#     && chmod +x /usr/local/bin/chromedriver
 
-    
+# Copy ChromeDriver zip file into the container
+COPY chromedriver-linux64.zip /tmp/chromedriver.zip
+
+# Extract ChromeDriver zip file
+RUN unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
+    && chmod +x /usr/local/bin/chromedriver \
+    && rm /tmp/chromedriver.zip
+
+
 # Set the working directory in the container
 WORKDIR /code
 
