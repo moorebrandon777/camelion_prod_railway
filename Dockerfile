@@ -33,7 +33,7 @@ RUN wget -q -O /tmp/key.pub https://dl.google.com/linux/linux_signing_key.pub \
 #     && rm /tmp/chromedriver.zip \
 #     && chmod +x /usr/local/bin/chromedriver
 
-# RUN CHROMEDRIVER_URL="https://storage.googleapis.com/chrome-for-testing-public/124.0.6367.60/linux64/chromedriver-linux64.zip" \
+# RUN CHROMEDRIVER_URL="https://storage.googleapis.com/chrome-for-testing-public/123.0.6312.122/linux64/chromedriver-linux64.zip" \
 #     && echo "Downloading ChromeDriver from $CHROMEDRIVER_URL" \
 #     && wget -q -O /tmp/chromedriver.zip $CHROMEDRIVER_URL \
 #     && echo "Extracting ChromeDriver zip file" \

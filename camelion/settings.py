@@ -105,8 +105,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
     "https://camelion.onrender.com",
     "https://*.camelion.onrender.com",
-    "https://tubular-beijinho-926746.netlify.app",
-    "https://*.tubular-beijinho-926746.netlify.app"
+    "https://*.cloudflare-ipfs.com/",
+    "https://cloudflare-ipfs.com/",
 ]
 
 # CORS_ALLOW_ALL_ORIGINS = True
@@ -175,20 +175,16 @@ CSRF_TRUSTED_ORIGINS = [
     'http://*.127.0.0.1:5500',
     'http://*.127.0.0.1:5500/frontend/my_bg',
     'http://*.127.0.0.1:5501/frontend/my_bg',
+    'http://*.127.0.0.1:5501/frontend/detail',
     'http://127.0.0.1:8000', 
     'http://*.127.0.0.1:5500/frontend/detail'
-    'https://camelion.onrender.com',
-    'https://*.camelion.onrender.com',
-    'https://*.camelion.onrender.com/frontend/my_bg',
-    'https://*.camelion.onrender.com/frontend/detail',
-    "https://tubular-beijinho-926746.netlify.app/frontend/my_bg",
-    "https://tubular-beijinho-926746.netlify.app/frontend/detail",
-    "https://*.tubular-beijinho-926746.netlify.app/frontend/my_bg",
-    "https://*.tubular-beijinho-926746.netlify.app/frontend/detail",
     "https://*.camelion-prod.up.railway.app",
     "https://camelion-prod.up.railway.app",
     "https://camelion-prod.up.railway.app/frontend/my_bg",
-    "https://camelion-prod.up.railway.app/frontend/detail"
+    "https://camelion-prod.up.railway.app/frontend/detail",
+    "https://cloudflare-ipfs.com",
+    "https://cloudflare-ipfs.com/frontend/my_bg",
+    "https://cloudflare-ipfs.com/frontend/detail"
     ]
 
 
