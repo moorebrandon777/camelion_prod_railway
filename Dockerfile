@@ -5,6 +5,7 @@ FROM python:3.10-slim
 ENV PYTHONUNBUFFERED 1
 ENV CHROMEDRIVER_VERSION 94.0.4606.61
 ENV CHROMEDRIVER_PATH /usr/local/bin/chromedriver
+ENV PORT 8000
 
 # Install system dependencies
 RUN apt-get update \
@@ -43,11 +44,20 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the project code into the container at /code
 COPY . /code/
 
+# Copy entry script into the container at /code
+COPY entry.sh /code/
+
+# Make the entry script executable
+RUN chmod +x /code/entry.sh
+
 # Install Gunicorn
 RUN pip install gunicorn
 
 # Expose port 8000 to the outside world
 EXPOSE $PORT
 
+# Set the entry point
+ENTRYPOINT ["/code/entry.sh"]
+
 # Command to run the Django application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "your_project.wsgi:application"]
+# CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "your_project.wsgi:application"]
