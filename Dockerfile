@@ -49,9 +49,10 @@ COPY chromedriver-linux64.zip /tmp/chromedriver.zip
 RUN ls /tmp/
 
 # Extract ChromeDriver zip file
-RUN unzip -v /tmp/chromedriver.zip -d /usr/local/bin/ \
+RUN unzip /tmp/chromedriver.zip -d /tmp/ \
+    && mv /tmp/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver \
     && chmod +x /usr/local/bin/chromedriver \
-    && rm /tmp/chromedriver.zip
+    && rm -rf /tmp/chromedriver.zip /tmp/chromedriver-linux64/
 
 
 # Set the working directory in the container
