@@ -24,7 +24,7 @@ RUN wget -q -O /tmp/key.pub https://dl.google.com/linux/linux_signing_key.pub \
     && apt-key add /tmp/key.pub \
     && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
     && apt-get update \
-    && apt-get install -y google-chrome-stable=123.0.6312.122 \
+    && apt-get install -y google-chrome-stable \
     && rm -rf /var/lib/apt/lists/*
 
 # Download and install ChromeDriver
