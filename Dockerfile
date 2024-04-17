@@ -45,8 +45,11 @@ RUN wget -q -O /tmp/key.pub https://dl.google.com/linux/linux_signing_key.pub \
 # Copy ChromeDriver zip file into the container
 COPY chromedriver-linux64.zip /tmp/chromedriver.zip
 
+# Display contents of /tmp/ directory
+RUN ls /tmp/
+
 # Extract ChromeDriver zip file
-RUN unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
+RUN unzip -v /tmp/chromedriver.zip -d /usr/local/bin/ \
     && chmod +x /usr/local/bin/chromedriver \
     && rm /tmp/chromedriver.zip
 
