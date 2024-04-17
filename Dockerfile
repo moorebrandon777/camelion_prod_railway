@@ -47,7 +47,7 @@ COPY . /code/
 RUN pip install gunicorn
 
 # Expose port 8000 to the outside world
-EXPOSE 8000
+EXPOSE $PORT
 
 # Command to run the Django application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "camelion.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "your_project.wsgi:application"]

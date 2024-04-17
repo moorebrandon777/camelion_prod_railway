@@ -33,6 +33,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+PORT = int(os.environ.get("PORT", 8000))
+
 ALLOWED_HOSTS = ['camelion-prod.up.railway.app','localhost', '127.0.0.1']
 
 
