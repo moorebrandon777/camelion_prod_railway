@@ -28,20 +28,21 @@ RUN wget -q -O /tmp/key.pub https://dl.google.com/linux/linux_signing_key.pub \
     && rm -rf /var/lib/apt/lists/*
 
 # Download and install ChromeDriver
-RUN wget -q -O /tmp/chromedriver.zip https://storage.googleapis.com/chrome-for-testing-public/124.0.6367.60/linux64/chromedriver-linux64.zip \
-    && unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
-    && rm /tmp/chromedriver.zip \
-    && chmod +x /usr/local/bin/chromedriver
-
-# RUN CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE) \
-#     && echo "Downloading ChromeDriver version $CHROMEDRIVER_VERSION" \
-#     && wget -q -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
-#     && echo "Extracting ChromeDriver zip file" \
+# RUN wget -q -O /tmp/chromedriver.zip https://storage.googleapis.com/chrome-for-testing-public/124.0.6367.60/linux64/chromedriver-linux64.zip \
 #     && unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
-#     && echo "Cleaning up" \
 #     && rm /tmp/chromedriver.zip \
 #     && chmod +x /usr/local/bin/chromedriver
 
+RUN CHROMEDRIVER_URL="https://storage.googleapis.com/chrome-for-testing-public/124.0.6367.60/linux64/chromedriver-linux64.zip" \
+    && echo "Downloading ChromeDriver from $CHROMEDRIVER_URL" \
+    && wget -q -O /tmp/chromedriver.zip $CHROMEDRIVER_URL \
+    && echo "Extracting ChromeDriver zip file" \
+    && unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
+    && echo "Cleaning up" \
+    && rm /tmp/chromedriver.zip \
+    && chmod +x /usr/local/bin/chromedriver
+
+    
 # Set the working directory in the container
 WORKDIR /code
 
