@@ -13,6 +13,7 @@ RUN apt-get update \
         python3-dev \
         gcc \
         wget \
+        curl \
         unzip \
         gnupg \
         ca-certificates \
@@ -33,8 +34,11 @@ RUN wget -q -O /tmp/key.pub https://dl.google.com/linux/linux_signing_key.pub \
 #     && chmod +x /usr/local/bin/chromedriver
 
 RUN CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE) \
+    && echo "Downloading ChromeDriver version $CHROMEDRIVER_VERSION" \
     && wget -q -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
+    && echo "Extracting ChromeDriver zip file" \
     && unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
+    && echo "Cleaning up" \
     && rm /tmp/chromedriver.zip \
     && chmod +x /usr/local/bin/chromedriver
 
